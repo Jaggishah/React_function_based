@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-
+import About from './components/About';
+// import Alert from './components/Alert';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+// import { useState } from 'react';
+import { BrowserRouter,  Routes,
+  Route,
+} from "react-router-dom";
 function App() {
+  // const [alert, setAlert] = useState(null);
+  // const showalert =(message,type)=>{
+  //     setAlert({
+  //       msg:message,
+  //       type:type
+  //     })
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <BrowserRouter>
+      <Navbar title = "TextUtils" abouttext= "About"/>
+      {/* <Alert /> */}
+
+      <div className="container my-3">
+      <Routes>
+          <Route path='/about' element={<About/>}/>
+            
+          
+          <Route path='/' element={<TextForm heading="Enter The Text To Analyse"/>}/>
+          
+          
+
+      </Routes>
+        
+       
+
+      </div>
+      </BrowserRouter>
+      
+    
   );
 }
 
